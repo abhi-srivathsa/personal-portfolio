@@ -1082,36 +1082,6 @@ section {
   padding: 40px 0;
 }
 
-
-.about-photo {
-  flex: 1 1 260px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.about-photo img {
-  width: 340px;
-  max-width: 100%;
-  height: auto;
-  border-radius: 16px; /* Rounded corners for modern look */
-  object-fit: cover;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.1);
-}
-
-@media (max-width: 900px) {
-  .about-section {
-    flex-direction: column;
-    gap: 24px;
-    padding: 24px 12px;
-  }
-  .about-photo img {
-    width: 90vw;
-    max-width: 350px;
-  }
-}
-
-
 .highlight-item {
   display: flex;
   align-items: center;
@@ -1972,15 +1942,32 @@ section {
   outline-offset: 2px !important;
 }
 
+/* Loading state */
+body.loaded .fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* GENERAL RESET FOR IMG ELEMENTS */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* PROFILE PHOTO STYLES */
 .profile-photo {
-  width: 160px;          /* or 180px, adjust as desired */
+  width: 160px;
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
   margin: 0 auto;
   box-shadow: 0 6px 40px rgba(0,0,0,0.10);
-  border: 4px solid #fff; /* optional, for definition */
+  border: 4px solid #fff;
 }
 
 @media (max-width: 600px) {
@@ -1990,8 +1977,43 @@ section {
   }
 }
 
-/* Loading state */
-body.loaded .fade-in {
-  opacity: 1;
-  transform: translateY(0);
+/* ABOUT PHOTO CONTAINER AND IMAGE */
+.about-photo {
+  flex: 1 1 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.about-photo img {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.1);
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .about-photo {
+    max-width: 350px;
+    width: 90vw;
+  }
+  .about-photo img {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-photo {
+    max-width: 220px;
+    width: 80vw;
+  }
+  .about-photo img {
+    max-width: 220px;
+  }
 }
