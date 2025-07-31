@@ -1933,6 +1933,16 @@ section {
   outline-offset: 2px !important;
 }
 
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 40px rgba(0,0,0,0.10);
+  margin: auto;
+  display: block;
+}
+
 /* Loading state */
 body.loaded .fade-in {
   opacity: 1;
