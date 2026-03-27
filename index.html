@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhilash Harish Srivathsa - Software Engineer</title>
+    <title>Abhilash Srivathsa — Software Engineer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-brand">
-                <span class="brand-name">AS</span>
-            </div>
+            <a href="#home" class="nav-brand">
+                <span class="brand-icon">&#9632;</span>
+                <span class="brand-text">ABHILASH SRIVATHSA</span>
+            </a>
             <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#education" class="nav-link">Education</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#about" class="nav-link"><span class="nav-key">[A]</span> ABOUT</a>
+                <a href="#experience" class="nav-link"><span class="nav-key">[E]</span> EXPERIENCE</a>
+                <a href="#projects" class="nav-link"><span class="nav-key">[P]</span> PROJECTS</a>
+                <a href="#skills" class="nav-link"><span class="nav-key">[S]</span> SKILLS</a>
+                <a href="#education" class="nav-link"><span class="nav-key">[D]</span> EDUCATION</a>
+                <a href="#contact" class="nav-link nav-link--cta"><span class="nav-key">[C]</span> CONTACT</a>
             </div>
             <div class="nav-toggle" id="nav-toggle">
                 <span class="bar"></span>
@@ -35,25 +36,36 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-container">
+        <div class="hero-glow"></div>
+        <span class="cross-marker" style="top: 60px; left: 3%;">+</span>
+        <span class="cross-marker" style="top: 60px; right: 3%;">+</span>
+        <span class="cross-marker" style="top: 60px; left: 50%;">+</span>
+        <span class="cross-marker" style="bottom: 40px; left: 3%;">+</span>
+        <span class="cross-marker" style="bottom: 40px; right: 3%;">+</span>
+        <span class="cross-marker" style="bottom: 40px; left: 50%;">+</span>
+        <div class="container">
             <div class="hero-content">
-                <div class="hero-photo-placeholder">
-                    <div class="photo-frame">
-                        <img 
-                            src="src/assets/headshot.jpg" 
-                             alt="AS"
-                             class="profile-photo"
-                        />
+                <h1 class="hero-title">
+                    Building AI<br>that reviews <span class="gradient-text">Code</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Senior Software Engineer at CodeRabbit, building agentic AI systems
+                    for automated code review. AI | Product | Infrastructure | Cloud.
+                </p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">5+</span>
+                        <span class="hero-stat-label">Years Experience</span>
                     </div>
-                </div>
-                <div class="hero-text">
-                    <h1 class="hero-name">Abhilash Harish Srivathsa</h1>
-                    <h2 class="hero-title">Software Engineer II</h2>
-                    <p class="hero-subtitle">Backend & Infrastructure Specialist</p>
-                    <p class="hero-location">California</p>
-                    <div class="hero-cta">
-                        <a href="#contact" class="btn btn--primary">Get In Touch</a>
-                        <a href="#projects" class="btn btn--outline">View Work</a>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">80%</span>
+                        <span class="hero-stat-label">Tasks Automated</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">20%</span>
+                        <span class="hero-stat-label">Cost Reduction</span>
                     </div>
                 </div>
             </div>
@@ -61,55 +73,62 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-main">
-                    <div class="about-text">
-                        <p class="about-description">
-                            Passionate Software Engineer with expertise in backend development and cloud infrastructure. 
-                            Currently building scalable solutions at Okta, with a focus on Java, Golang, and modern cloud platforms. 
-                            I specialize in designing robust infrastructure, automating complex workflows, and delivering 
-                            high-impact solutions that reduce operational overhead and improve developer productivity.
-                        </p>
-                        <div class="about-highlights">
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🚀</span>
-                                <span class="highlight-text">Infrastructure Expert</span>
+            <div class="section-label">About</div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 class="section-title">Passionate about building <span class="gradient-text">intelligent systems</span> at scale</h2>
+                    <p class="about-description">
+                        Currently building agentic AI systems for automated code review at CodeRabbit.
+                        I specialize in designing intelligent review workflows, developing AI systems that
+                        improve code quality at scale, bridging modern software engineering with applied AI.
+                        Previously, I built GCP/AWS cloud infrastructure, developed Java and Golang tooling to
+                        automate CI/CD workflows, and reduced manual operational overhead by 80%.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
                             </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">⚡</span>
-                                <span class="highlight-text">Automation & Reliability Specialist</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">☁️</span>
-                                <span class="highlight-text">Multi-Cloud Architecture</span>
+                            <div>
+                                <h3>AI Specialist</h3>
+                                <p>Agentic AI, LLMs, Code Review</p>
                             </div>
                         </div>
-                    </div>
-                        <div className="about-photo">
-                            <img 
-                                src="src/assets/gg_jump.jpg" 
-                                alt="AS"
-                            />
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Automation & Reliability Expert</h3>
+                                <p>CI/CD, SRE, Automation</p>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Team Player</h3>
+                                <p>Agile, Mentoring, Cross-functional</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Years Experience</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">80%</span>
-                        <span class="stat-label">Manual Tasks Reduced</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">20%</span>
-                        <span class="stat-label">Cost Savings</span>
+                <div class="about-photo">
+                    <div class="photo-card">
+                        <img src="src/assets/headshot.jpg" alt="Abhilash Srivathsa" class="photo-img" />
+                        <div class="photo-caption">
+                            <span class="photo-name">Abhilash Srivathsa</span>
+                            <span class="photo-role">Senior Software Engineer</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,157 +136,148 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <section id="experience" class="section section--alt">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Experience</h2>
-            </div>
-            <div class="experience-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="job-header">
-                            <h3 class="job-title">Software Engineer II</h3>
-                            <span class="job-company">Okta</span>
-                            <span class="job-period">Jan 2023 – Present</span>
-                            <span class="job-location">San Francisco, CA</span>
+            <div class="section-label">Experience</div>
+            <h2 class="section-title">Where I've <span class="gradient-text">worked</span></h2>
+            <div class="experience-grid">
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-company-badge">
+                            <span class="exp-company-letter">C</span>
                         </div>
-                        <div class="job-team">Infrastructure Team</div>
-                        <ul class="job-achievements">
-                            <li>Designed and built new infrastructure in Google Cloud Platform (GCP), reducing operational costs by 20%</li>
-                            <li>Integrated Java internal tools with Kubernetes architecture, reducing manual workload by 34%</li>
-                            <li>Developed CLI tools in Golang to streamline CI/CD processes and infrastructure workflows</li>
-                            <li>Built Java-based tools for real-time service management, reducing manual tasks by 80%</li>
-                        </ul>
-                        <div class="job-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Golang</span>
-                            <span class="tech-tag">GCP</span>
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">Terraform</span>
+                        <div>
+                            <h3 class="exp-title">Senior Software Engineer</h3>
+                            <div class="exp-meta">
+                                <span class="exp-company">CodeRabbit</span>
+                                <span class="exp-separator">&middot;</span>
+                                <span class="exp-period">Jan 2026 – Present</span>
+                            </div>
                         </div>
+                    </div>
+                    <div class="exp-team">Applied AI Team &middot; San Francisco, CA</div>
+                    <ul class="exp-list">
+                        <li>Building agentic AI systems for automated code review</li>
+                        <li>Working on AI-powered developer tooling in TypeScript</li>
+                        <li>Developing intelligent review workflows to improve code quality at scale</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Agentic AI</span>
+                        <span class="tag">LLMs</span>
+                        <span class="tag">Code Review</span>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="job-header">
-                            <h3 class="job-title">Site Reliability Engineering Intern</h3>
-                            <span class="job-company">Okta</span>
-                            <span class="job-period">Jun 2022 – Sep 2022</span>
-                            <span class="job-location">San Francisco, CA</span>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-company-badge">
+                            <span class="exp-company-letter">O</span>
                         </div>
-                        <div class="job-team">GCP SRE Team</div>
-                        <ul class="job-achievements">
-                            <li>Developed command line tools in Golang and Cobra for infrastructure automation</li>
-                            <li>Implemented multi-cloud architecture support using AWS and GCP</li>
-                        </ul>
-                        <div class="job-tech">
-                            <span class="tech-tag">Golang</span>
-                            <span class="tech-tag">Cobra</span>
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">GCP</span>
+                        <div>
+                            <h3 class="exp-title">Software Engineer II</h3>
+                            <div class="exp-meta">
+                                <span class="exp-company">Okta</span>
+                                <span class="exp-separator">&middot;</span>
+                                <span class="exp-period">Jan 2023 – Dec 2025</span>
+                            </div>
                         </div>
+                    </div>
+                    <div class="exp-team">Infrastructure Team &middot; San Francisco, CA</div>
+                    <ul class="exp-list">
+                        <li>Designed and built new infrastructure in GCP, reducing operational costs by 20%</li>
+                        <li>Integrated Java internal tools with Kubernetes, reducing manual workload by 34%</li>
+                        <li>Developed CLI tools in Golang to streamline CI/CD and infrastructure workflows</li>
+                        <li>Built Java-based tools for real-time service management, reducing manual tasks by 80%</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Golang</span>
+                        <span class="tag">GCP</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">Terraform</span>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="job-header">
-                            <h3 class="job-title">Software Engineering Intern & Teaching Assistant</h3>
-                            <span class="job-company">Santa Clara University</span>
-                            <span class="job-period">Mar 2021 - Dec 2022</span>
-                            <span class="job-location">Santa Clara, CA</span>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-company-badge">
+                            <span class="exp-company-letter">O</span>
                         </div>
-                        <div class="job-team">Frugal Innovation Hub</div>
-                        <ul class="job-achievements">
-                            <li>Led Mobile Application Development projects for humanitarian impact</li>
-                            <li>Improved crop yield by 22%, tourism revenue by 36%, and clean water access</li>
-                            <li>Utilized React Native and Firebase for backend authentication and data storage</li>
-                        </ul>
-                        <div class="job-tech">
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">Mobile Development</span>
+                        <div>
+                            <h3 class="exp-title">SRE Intern</h3>
+                            <div class="exp-meta">
+                                <span class="exp-company">Okta</span>
+                                <span class="exp-separator">&middot;</span>
+                                <span class="exp-period">Jun 2022 – Sep 2022</span>
+                            </div>
                         </div>
+                    </div>
+                    <div class="exp-team">GCP SRE Team &middot; San Francisco, CA</div>
+                    <ul class="exp-list">
+                        <li>Developed CLI tools in Golang and Cobra for infrastructure automation</li>
+                        <li>Implemented multi-cloud architecture support using AWS and GCP</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">Golang</span>
+                        <span class="tag">Cobra</span>
+                        <span class="tag">AWS</span>
+                        <span class="tag">GCP</span>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="job-header">
-                            <h3 class="job-title">Software Engineer</h3>
-                            <span class="job-company">Deloitte</span>
-                            <span class="job-period">Aug 2018 - Nov 2020</span>
-                            <span class="job-location">Bengaluru, India</span>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-company-badge">
+                            <span class="exp-company-letter">S</span>
                         </div>
-                        <ul class="job-achievements">
-                            <li>Architected AWS cloud infrastructure and implemented CI/CD pipelines, improving efficiency by 40%</li>
-                            <li>Migrated mainframe-based applications to Java microservices, securing 2 new enterprise clients</li>
-                            <li>Led Agile delivery, onboarded new engineers, and managed client interactions</li>
-                        </ul>
-                        <div class="job-tech">
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">CI/CD</span>
-                            <span class="tech-tag">Microservices</span>
+                        <div>
+                            <h3 class="exp-title">Software Engineering Intern & TA</h3>
+                            <div class="exp-meta">
+                                <span class="exp-company">Santa Clara University</span>
+                                <span class="exp-separator">&middot;</span>
+                                <span class="exp-period">Mar 2021 – Dec 2022</span>
+                            </div>
                         </div>
                     </div>
+                    <div class="exp-team">Frugal Innovation Hub &middot; Santa Clara, CA</div>
+                    <ul class="exp-list">
+                        <li>Led Mobile Application Development projects for humanitarian impact</li>
+                        <li>Improved crop yield by 22%, tourism revenue by 36%, and clean water access</li>
+                        <li>Utilized React Native and Firebase for backend and data storage</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">React Native</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">Mobile</span>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Skills & Technologies</h2>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3 class="skill-category-title">Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Golang</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">JavaScript</span>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-company-badge">
+                            <span class="exp-company-letter">D</span>
+                        </div>
+                        <div>
+                            <h3 class="exp-title">Software Engineer</h3>
+                            <div class="exp-meta">
+                                <span class="exp-company">Deloitte</span>
+                                <span class="exp-separator">&middot;</span>
+                                <span class="exp-period">Aug 2018 – Nov 2020</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-category">
-                    <h3 class="skill-category-title">Technologies</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Spinnaker</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 class="skill-category-title">Concepts</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Microservices</span>
-                        <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">REST APIs</span>
-                        <span class="skill-tag">Distributed Systems</span>
-                        <span class="skill-tag">Cloud Computing</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 class="skill-category-title">Frameworks</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">React Native</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Bootstrap</span>
+                    <div class="exp-team">Bengaluru, India</div>
+                    <ul class="exp-list">
+                        <li>Architected AWS cloud infrastructure and CI/CD pipelines, improving efficiency by 40%</li>
+                        <li>Migrated mainframe-based apps to Java microservices, securing 2 new enterprise clients</li>
+                        <li>Led Agile delivery, onboarded engineers, and managed client interactions</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span class="tag">AWS</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">Microservices</span>
                     </div>
                 </div>
             </div>
@@ -275,103 +285,173 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-            </div>
+            <div class="section-label">Projects</div>
+            <h2 class="section-title">Featured <span class="gradient-text">work</span></h2>
             <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">Distributed Hash Table (Chord-DHT)</h3>
-                        <p class="project-description">
-                            Implemented a scalable peer-to-peer Java-based distributed hash table using the Chord algorithm 
-                            as part of a Distributed Systems course project.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Distributed Systems</span>
-                            <span class="tech-tag">P2P</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/abhi-srivathsa/Chord-DHT" target="_blank" class="project-link">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                                GitHub
-                            </a>
-                        </div>
+                <a href="https://github.com/abhi-srivathsa/ai-restaurant-reserve" target="_blank" rel="noopener" class="project-card project-card--featured">
+                    <div class="project-glow project-glow--cyan"></div>
+                    <div class="project-header">
+                        <span class="project-type">Agentic AI</span>
+                        <svg class="project-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M5 15L15 5M15 5H7M15 5v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="project-title">AI Restaurant Reservation — MCP Server</h3>
+                    <p class="project-desc">A conversational AI-powered restaurant reservation assistant using Gemini for natural language and Google Places API through an integrated MCP server-client system.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Agentic AI</span>
+                        <span class="tag">LLM</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/abhi-srivathsa/Socrates-II" target="_blank" rel="noopener" class="project-card">
+                    <div class="project-glow project-glow--purple"></div>
+                    <div class="project-header">
+                        <span class="project-type">AI / ML</span>
+                        <svg class="project-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M5 15L15 5M15 5H7M15 5v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="project-title">Socrates II</h3>
+                    <p class="project-desc">An interactive AI bot for philosophical discourse, powered by OpenAI GPT-3 and Markov Chains.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">OpenAI</span>
+                        <span class="tag">Markov Chains</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/abhi-srivathsa/Chord-DHT" target="_blank" rel="noopener" class="project-card">
+                    <div class="project-glow project-glow--green"></div>
+                    <div class="project-header">
+                        <span class="project-type">Distributed Systems</span>
+                        <svg class="project-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M5 15L15 5M15 5H7M15 5v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="project-title">Chord-DHT</h3>
+                    <p class="project-desc">A scalable peer-to-peer Java-based distributed hash table using the Chord algorithm for efficient key-value lookups across nodes.</p>
+                    <div class="project-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Distributed Systems</span>
+                        <span class="tag">P2P</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/RinkleRani/student-plaza" target="_blank" rel="noopener" class="project-card">
+                    <div class="project-glow project-glow--orange"></div>
+                    <div class="project-header">
+                        <span class="project-type">Full Stack</span>
+                        <svg class="project-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M5 15L15 5M15 5H7M15 5v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="project-title">Student Marketplace</h3>
+                    <p class="project-desc">Full-stack microservice web app on AWS, providing a secure marketplace for students to interact and trade goods.</p>
+                    <div class="project-tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">React</span>
+                        <span class="tag">AWS Lambda</span>
+                        <span class="tag">DynamoDB</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/abhi-srivathsa/Galapagos-Islands-Project" target="_blank" rel="noopener" class="project-card">
+                    <div class="project-glow project-glow--green"></div>
+                    <div class="project-header">
+                        <span class="project-type">Mobile App</span>
+                        <svg class="project-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M5 15L15 5M15 5H7M15 5v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="project-title">Galapagos Tourist Guide</h3>
+                    <p class="project-desc">React Native app for the Galapagos Chamber of Tourism to boost local economy and promote businesses.</p>
+                    <div class="project-tags">
+                        <span class="tag">React Native</span>
+                        <span class="tag">Firebase</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section section--alt">
+        <div class="container">
+            <div class="section-label">Skills</div>
+            <h2 class="section-title">Technologies I <span class="gradient-text">work with</span></h2>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h3 class="skill-group-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        Languages
+                    </h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">Golang</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">TypeScript</span>
+                        <span class="skill-item">C</span>
+                        <span class="skill-item">JavaScript</span>
                     </div>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">Student Marketplace Platform</h3>
-                        <p class="project-description">
-                            Created a full-stack microservice-based web application hosted on AWS, offering a secure 
-                            marketplace for students to interact and sell goods.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">React.js</span>
-                            <span class="tech-tag">AWS Lambda</span>
-                            <span class="tech-tag">DynamoDB</span>
-                            <span class="tech-tag">Docker</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/RinkleRani/student-plaza" target="_blank" class="project-link">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                                GitHub
-                            </a>
-                        </div>
+                <div class="skill-group">
+                    <h3 class="skill-group-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                        Technologies
+                    </h3>
+                    <div class="skill-items">
+                        <span class="skill-item">GCP</span>
+                        <span class="skill-item">AWS</span>
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">Kubernetes</span>
+                        <span class="skill-item">Terraform</span>
+                        <span class="skill-item">Jenkins</span>
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">Spinnaker</span>
                     </div>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">Tourist Guide App – Galapagos Islands</h3>
-                        <p class="project-description">
-                            Developed a React Native application for the Galapagos Chamber of Tourism to boost the local 
-                            economy and promote local businesses.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">React.js</span>
-                            <span class="tech-tag">Firebase</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/abhi-srivathsa/Galapagos-Islands-Project" target="_blank" class="project-link">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                                GitHub
-                            </a>
-                        </div>
+                <div class="skill-group">
+                    <h3 class="skill-group-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
+                        </svg>
+                        Concepts
+                    </h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Microservices</span>
+                        <span class="skill-item">CI/CD</span>
+                        <span class="skill-item">REST APIs</span>
+                        <span class="skill-item">Distributed Systems</span>
+                        <span class="skill-item">Cloud Computing</span>
                     </div>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">Socrates II – Generative AI Bot</h3>
-                        <p class="project-description">
-                            Developed an interactive computationally creative bot focused on philosophy using OpenAI 
-                            and Markov Chains to generate profound thoughts and responses.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">OpenAI GPT-3</span>
-                            <span class="tech-tag">Markov Chains</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/abhi-srivathsa/Socrates-II" target="_blank" class="project-link">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                                GitHub
-                            </a>
-                        </div>
+                <div class="skill-group">
+                    <h3 class="skill-group-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                        Frameworks
+                    </h3>
+                    <div class="skill-items">
+                        <span class="skill-item">React</span>
+                        <span class="skill-item">React Native</span>
+                        <span class="skill-item">Node.js</span>
+                        <span class="skill-item">Bootstrap</span>
                     </div>
                 </div>
             </div>
@@ -379,68 +459,85 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="education">
+    <section id="education" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Education</h2>
-            </div>
+            <div class="section-label">Education</div>
+            <h2 class="section-title">Academic <span class="gradient-text">background</span></h2>
             <div class="education-grid">
-                <div class="education-card">
-                    <div class="education-content">
-                        <h3 class="education-degree">MS in Computer Science and Engineering</h3>
-                        <div class="education-school">Santa Clara University</div>
-                        <div class="education-details">
-                            <span class="education-period">2021 – 2022</span>
-                            <span class="education-location">Santa Clara, CA</span>
+                <div class="edu-card">
+                    <div class="edu-badge edu-badge--ms">MS</div>
+                    <div class="edu-content">
+                        <h3 class="edu-degree">MS in Computer Science and Engineering</h3>
+                        <div class="edu-school">Santa Clara University</div>
+                        <div class="edu-meta">
+                            <span>2021 – 2022</span>
+                            <span class="exp-separator">&middot;</span>
+                            <span>Santa Clara, CA</span>
                         </div>
-                        <div class="education-honors">
-                            <span class="status status--success">Graduated with Honors</span>
-                            <span class="education-gpa">GPA: 3.91 / 4.0</span>
+                        <div class="edu-honors">
+                            <span class="honor-badge">Graduated with Honors</span>
+                            <span class="honor-gpa">GPA: 3.91 / 4.0</span>
                         </div>
-                        <div class="education-coursework">
-                            <span class="course-tag">Algorithms</span>
-                            <span class="course-tag">Operating Systems</span>
-                            <span class="course-tag">Generative AI</span>
-                            <span class="course-tag">Cloud Computing</span>
-                            <span class="course-tag">Distributed Systems</span>
+                        <div class="edu-courses">
+                            <span class="tag">Algorithms</span>
+                            <span class="tag">Operating Systems</span>
+                            <span class="tag">Generative AI</span>
+                            <span class="tag">Cloud Computing</span>
+                            <span class="tag">Distributed Systems</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="education-card">
-                    <div class="education-content">
-                        <h3 class="education-degree">BE in Computer Science and Engineering</h3>
-                        <div class="education-school">PES University</div>
-                        <div class="education-details">
-                            <span class="education-period">2014 – 2018</span>
-                            <span class="education-location">Bengaluru, India</span>
+                <div class="edu-card">
+                    <div class="edu-badge edu-badge--be">BE</div>
+                    <div class="edu-content">
+                        <h3 class="edu-degree">BE in Computer Science and Engineering</h3>
+                        <div class="edu-school">PES University</div>
+                        <div class="edu-meta">
+                            <span>2014 – 2018</span>
+                            <span class="exp-separator">&middot;</span>
+                            <span>Bengaluru, India</span>
                         </div>
-                        <div class="education-coursework">
-                            <span class="course-tag">Data Structures</span>
-                            <span class="course-tag">Java</span>
-                            <span class="course-tag">AI</span>
-                            <span class="course-tag">Networks</span>
-                            <span class="course-tag">Database</span>
-                            <span class="course-tag">Web Development</span>
+                        <div class="edu-courses">
+                            <span class="tag">Data Structures</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">Networks</span>
+                            <span class="tag">Database</span>
+                            <span class="tag">Web Development</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="certifications">
-                <h3 class="certifications-title">Certifications & Awards</h3>
-                <div class="certifications-list">
-                    <div class="cert-item">
-                        <span class="status status--info">AWS Certified Solutions Architect – Associate</span>
+            <div class="certs-section">
+                <h3 class="certs-title">Certifications & Awards</h3>
+                <div class="certs-grid">
+                    <div class="cert-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>AWS Certified Solutions Architect – Associate</span>
                     </div>
-                    <div class="cert-item">
-                        <span class="status status--info">Deloitte-certified DevOps Cloud Engineer</span>
+                    <div class="cert-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Deloitte-certified DevOps Cloud Engineer</span>
                     </div>
-                    <div class="cert-item">
-                        <span class="status status--warning">Deloitte Applause Award & Spot Award</span>
+                    <div class="cert-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Deloitte Applause Award & Spot Award</span>
                     </div>
-                    <div class="cert-item">
-                        <span class="status status--success">Certificate of Distinction</span>
+                    <div class="cert-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Certificate of Distinction</span>
                     </div>
                 </div>
             </div>
@@ -448,66 +545,34 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="section section--alt">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Let's Connect</h2>
-                <p class="section-subtitle">I'm always interested in discussing new opportunities and innovative projects.</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                        </div>
-                        <div class="contact-details">
-                            <span class="contact-label">Email</span>
-                            <a href="mailto:abhilash.srivathsa@gmail.com" class="contact-value">abhilash.srivathsa@gmail.com</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
-                        </div>
-                        <div class="contact-details">
-                            <span class="contact-label">Phone</span>
-                            <a href="tel:+16692937484" class="contact-value">+1 (669) 293-7484</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div>
-                        <div class="contact-details">
-                            <span class="contact-label">Location</span>
-                            <span class="contact-value">Los Angeles, CA</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/abhilash-srivathsa/" target="_blank" class="social-link">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                        LinkedIn
-                    </a>
-                    <a href="https://github.com/abhi-srivathsa" target="_blank" class="social-link">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        GitHub
-                    </a>
+            <div class="section-label">Contact</div>
+            <h2 class="section-title">Let's build something <span class="gradient-text">together</span></h2>
+            <p class="section-subtitle">I'm always interested in discussing new opportunities and innovative projects.</p>
+            <div class="contact-grid">
+                <a href="mailto:abhilash.srivathsa@gmail.com" class="contact-card">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="22,6 12,13 2,6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="contact-card-label">Email</span>
+                    <span class="contact-card-value">abhilash.srivathsa@gmail.com</span>
+                </a>
+                <a href="tel:+16692937484" class="contact-card">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="contact-card-label">Phone</span>
+                    <span class="contact-card-value">+1 (669) 293-7484</span>
+                </a>
+                <div class="contact-card">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <span class="contact-card-label">Location</span>
+                    <span class="contact-card-value">San Francisco, CA</span>
                 </div>
             </div>
         </div>
@@ -515,10 +580,54 @@
 
     <!-- Footer -->
     <footer class="footer">
+        <div class="cross-row">
+            <span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span>
+        </div>
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Abhilash Harish Srivathsa. All rights reserved.</p>
+            <div class="footer-grid">
+                <div class="footer-main">
+                    <div class="footer-section-label">/ Contact</div>
+                    <p class="footer-description">Senior Software Engineer building agentic AI systems for automated code review at CodeRabbit.</p>
+                    <a href="mailto:abhilash.srivathsa@gmail.com" class="footer-cta-btn">Get in touch</a>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-group">
+                        <div class="footer-section-label">/ Social</div>
+                        <div class="footer-pills">
+                            <a href="https://github.com/abhi-srivathsa" target="_blank" rel="noopener" class="footer-pill">GITHUB</a>
+                            <a href="https://www.linkedin.com/in/abhilash-srivathsa/" target="_blank" rel="noopener" class="footer-pill">LINKEDIN</a>
+                            <a href="mailto:abhilash.srivathsa@gmail.com" class="footer-pill">EMAIL</a>
+                        </div>
+                    </div>
+                    <div class="footer-group">
+                        <div class="footer-section-label">/ Navigate</div>
+                        <div class="footer-pills">
+                            <a href="#about" class="footer-pill">ABOUT</a>
+                            <a href="#experience" class="footer-pill">EXPERIENCE</a>
+                            <a href="#projects" class="footer-pill">PROJECTS</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="cross-row">
+            <span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <span class="brand-icon">&#9632;</span>
+                    <span class="footer-copyright">&copy; 2026 ABHILASH SRIVATHSA</span>
+                </div>
+                <div class="footer-pills">
+                    <a href="#home" class="footer-pill">TOP</a>
+                    <a href="https://github.com/abhi-srivathsa" target="_blank" rel="noopener" class="footer-pill">GITHUB</a>
+                    <a href="https://www.linkedin.com/in/abhilash-srivathsa/" target="_blank" rel="noopener" class="footer-pill">LINKEDIN</a>
+                </div>
+            </div>
+        </div>
+        <div class="cross-row">
+            <span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span><span class="cross-marker">+</span>
         </div>
     </footer>
 
