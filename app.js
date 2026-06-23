@@ -19,8 +19,6 @@ function initNavigation() {
 
   if (!header || !navToggle || !navMenu) return;
 
-  let lastScrollY = window.scrollY;
-
   const closeMenu = () => {
     navMenu.classList.remove('is-active');
     navToggle.classList.remove('is-active');
@@ -59,16 +57,7 @@ function initNavigation() {
     closeMenu();
   });
 
-  const updateHeader = () => {
-    const currentScrollY = window.scrollY;
-    const scrollingDown = currentScrollY > lastScrollY;
-    const canHide = window.innerWidth > 900 && !navMenu.classList.contains('is-active');
-
-    header.classList.toggle('is-hidden', canHide && scrollingDown && currentScrollY > 220);
-    lastScrollY = currentScrollY;
-  };
-
-  window.addEventListener('scroll', throttle(updateHeader, 120), { passive: true });
+  header.classList.remove('is-hidden');
 
   if ('IntersectionObserver' in window && sections.length) {
     const sectionObserver = new IntersectionObserver((entries) => {
@@ -225,11 +214,11 @@ function initPortraitMorph() {
     const aboutBottom = aboutTop + about.offsetHeight;
     const isCompact = viewportWidth < 760;
 
-    const baseHeight = clamp(viewportHeight * (isCompact ? 0.24 : 0.28), isCompact ? 150 : 170, isCompact ? 188 : 230);
+    const baseHeight = clamp(viewportHeight * (isCompact ? 0.24 : 0.3), isCompact ? 150 : 178, isCompact ? 188 : 260);
     const gap = isCompact ? 14 : 22;
     const heroTop = titleRect.bottom + gap;
     const availableHeroHeight = viewportHeight - heroTop - (isCompact ? 18 : 28);
-    const heroHeight = clamp(availableHeroHeight - (isCompact ? 0 : 42), isCompact ? 132 : 150, baseHeight);
+    const heroHeight = clamp(availableHeroHeight - (isCompact ? 0 : 8), isCompact ? 132 : 158, baseHeight);
     const heroWidth = heroHeight * aspectRatio;
     const heroLeft = (viewportWidth - heroWidth) / 2;
 
@@ -244,7 +233,12 @@ function initPortraitMorph() {
     const top = lerp(heroTop, targetRect.top, travelProgress);
     const width = lerp(heroWidth, targetWidth, progress);
     const height = lerp(heroHeight, targetHeight, progress);
-    const rotate = reducedMotion ? 0 : Math.sin(progress * Math.PI) * -22;
+    const flipProgress = reducedMotion ? 1 : clamp((rawProgress - 0.06) / 0.78, 0, 1);
+    const flipWave = flipProgress < 0.5
+      ? easeInOut(flipProgress * 2) * -88
+      : easeInOut((1 - flipProgress) * 2) * 88;
+    const rotate = reducedMotion ? 0 : flipWave;
+    const colorProgress = reducedMotion ? 1 : easeInOut(clamp((flipProgress - 0.5) / 0.24, 0, 1));
     const aboutFade = progress > 0.98 && scrollY > aboutBottom - viewportHeight * 0.18
       ? clamp((targetRect.bottom + 120) / 220, 0, 1)
       : 1;
@@ -256,6 +250,8 @@ function initPortraitMorph() {
     root.style.setProperty('--portrait-progress', progress.toFixed(3));
     root.style.setProperty('--portrait-rotate', `${rotate.toFixed(2)}deg`);
     root.style.setProperty('--portrait-opacity', aboutFade.toFixed(3));
+    root.style.setProperty('--portrait-color-progress', colorProgress.toFixed(3));
+    document.body.classList.toggle('is-past-hero', rawProgress > 0.72);
 
     ticking = false;
   };
