@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initTilt();
   initInternalLinks();
-  initPortraitScroll();
+  initPortraitMorph();
   initProjectRows();
 });
 
@@ -201,36 +201,61 @@ function initTilt() {
   });
 }
 
-function initPortraitScroll() {
+function initPortraitMorph() {
   const portrait = document.querySelector('.hero__portrait');
+  const title = document.getElementById('hero-title');
+  const about = document.getElementById('about');
+  const target = document.querySelector('.about__portrait-slot');
   const root = document.documentElement;
 
-  if (!portrait) return;
+  if (!portrait || !title || !about || !target) return;
 
-  if (prefersReducedMotion()) {
-    root.style.setProperty('--portrait-progress', '1');
-    portrait.classList.add('is-color');
-    return;
-  }
+  const aspectRatio = 1273 / 1800;
+  const reducedMotion = prefersReducedMotion();
 
   let ticking = false;
-  let flipped = false;
 
   const update = () => {
-    const progress = clamp(window.scrollY / Math.max(window.innerHeight * 0.72, 420), 0, 1);
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const scrollY = window.scrollY;
+    const titleRect = title.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+    const aboutTop = scrollY + about.getBoundingClientRect().top;
+    const aboutBottom = aboutTop + about.offsetHeight;
+    const isCompact = viewportWidth < 760;
+
+    const baseHeight = clamp(viewportHeight * (isCompact ? 0.24 : 0.28), isCompact ? 150 : 170, isCompact ? 188 : 230);
+    const gap = isCompact ? 14 : 22;
+    const heroTop = titleRect.bottom + gap;
+    const availableHeroHeight = viewportHeight - heroTop - (isCompact ? 18 : 28);
+    const heroHeight = clamp(availableHeroHeight - (isCompact ? 0 : 42), isCompact ? 132 : 150, baseHeight);
+    const heroWidth = heroHeight * aspectRatio;
+    const heroLeft = (viewportWidth - heroWidth) / 2;
+
+    const targetWidth = targetRect.width || heroWidth;
+    const targetHeight = targetRect.height || heroHeight;
+    const start = Math.max(64, viewportHeight * 0.12);
+    const end = Math.max(start + 1, aboutTop - viewportHeight * 0.22);
+    const rawProgress = clamp((scrollY - start) / (end - start), 0, 1);
+    const progress = reducedMotion ? rawProgress : easeInOut(rawProgress);
+    const travelProgress = reducedMotion ? rawProgress : easeOut(rawProgress);
+    const left = lerp(heroLeft, targetRect.left, travelProgress);
+    const top = lerp(heroTop, targetRect.top, travelProgress);
+    const width = lerp(heroWidth, targetWidth, progress);
+    const height = lerp(heroHeight, targetHeight, progress);
+    const rotate = reducedMotion ? 0 : Math.sin(progress * Math.PI) * -22;
+    const aboutFade = progress > 0.98 && scrollY > aboutBottom - viewportHeight * 0.18
+      ? clamp((targetRect.bottom + 120) / 220, 0, 1)
+      : 1;
+
+    root.style.setProperty('--portrait-left', `${left.toFixed(2)}px`);
+    root.style.setProperty('--portrait-top', `${top.toFixed(2)}px`);
+    root.style.setProperty('--portrait-width', `${width.toFixed(2)}px`);
+    root.style.setProperty('--portrait-height', `${height.toFixed(2)}px`);
     root.style.setProperty('--portrait-progress', progress.toFixed(3));
-
-    if (progress > 0.22 && !flipped) {
-      portrait.classList.remove('is-color');
-      void portrait.offsetWidth;
-      portrait.classList.add('is-color');
-      flipped = true;
-    }
-
-    if (progress <= 0.08 && flipped) {
-      portrait.classList.remove('is-color');
-      flipped = false;
-    }
+    root.style.setProperty('--portrait-rotate', `${rotate.toFixed(2)}deg`);
+    root.style.setProperty('--portrait-opacity', aboutFade.toFixed(3));
 
     ticking = false;
   };
@@ -244,6 +269,7 @@ function initPortraitScroll() {
   update();
   window.addEventListener('scroll', requestUpdate, { passive: true });
   window.addEventListener('resize', requestUpdate);
+  window.addEventListener('load', requestUpdate);
 }
 
 function initProjectRows() {
@@ -288,6 +314,20 @@ function prefersReducedMotion() {
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
+}
+
+function lerp(start, end, amount) {
+  return start + (end - start) * amount;
+}
+
+function easeInOut(value) {
+  return value < 0.5
+    ? 4 * value * value * value
+    : 1 - Math.pow(-2 * value + 2, 3) / 2;
+}
+
+function easeOut(value) {
+  return 1 - Math.pow(1 - value, 3);
 }
 
 function throttle(callback, wait) {
