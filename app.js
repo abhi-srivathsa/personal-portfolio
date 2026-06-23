@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initTilt();
   initInternalLinks();
+  initPortraitScroll();
+  initProjectRows();
 });
 
 function initNavigation() {
@@ -199,8 +201,93 @@ function initTilt() {
   });
 }
 
+function initPortraitScroll() {
+  const portrait = document.querySelector('.hero__portrait');
+  const root = document.documentElement;
+
+  if (!portrait) return;
+
+  if (prefersReducedMotion()) {
+    root.style.setProperty('--portrait-progress', '1');
+    portrait.classList.add('is-color');
+    return;
+  }
+
+  let ticking = false;
+  let flipped = false;
+
+  const update = () => {
+    const progress = clamp(window.scrollY / Math.max(window.innerHeight * 0.72, 420), 0, 1);
+    root.style.setProperty('--portrait-progress', progress.toFixed(3));
+
+    if (progress > 0.22 && !flipped) {
+      portrait.classList.remove('is-color');
+      void portrait.offsetWidth;
+      portrait.classList.add('is-color');
+      flipped = true;
+    }
+
+    if (progress <= 0.08 && flipped) {
+      portrait.classList.remove('is-color');
+      flipped = false;
+    }
+
+    ticking = false;
+  };
+
+  const requestUpdate = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  };
+
+  update();
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
+}
+
+function initProjectRows() {
+  const rows = Array.from(document.querySelectorAll('.project-row'));
+
+  if (!rows.length) return;
+
+  const clearRows = () => {
+    rows.forEach((row) => row.classList.remove('is-active'));
+  };
+
+  rows.forEach((row) => {
+    row.addEventListener('pointerenter', () => {
+      clearRows();
+      row.classList.add('is-active');
+    });
+
+    row.addEventListener('pointerleave', () => {
+      if (!row.contains(document.activeElement)) {
+        row.classList.remove('is-active');
+      }
+    });
+
+    row.addEventListener('focusin', () => {
+      clearRows();
+      row.classList.add('is-active');
+    });
+
+    row.addEventListener('focusout', () => {
+      window.setTimeout(() => {
+        if (!row.contains(document.activeElement)) {
+          row.classList.remove('is-active');
+        }
+      }, 0);
+    });
+  });
+}
+
 function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
 }
 
 function throttle(callback, wait) {

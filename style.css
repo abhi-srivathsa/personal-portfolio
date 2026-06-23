@@ -26,6 +26,7 @@
   --lead-size: 24px;
   --body-size: 16px;
   --small-size: 13px;
+  --portrait-progress: 0;
 }
 
 *,
@@ -286,7 +287,7 @@ button {
 
 .hero__headline {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   align-self: center;
   padding-top: 26px;
 }
@@ -328,18 +329,25 @@ button {
 .hero__portrait {
   position: absolute;
   left: 50%;
-  bottom: 4px;
-  z-index: 3;
-  width: 252px;
-  height: 342px;
+  bottom: -8px;
+  z-index: 2;
+  width: 154px;
+  height: 210px;
   margin: 0;
   overflow: hidden;
   border: 1px solid rgba(17, 17, 17, 0.2);
   border-radius: var(--radius);
   background: var(--paper-deep);
-  box-shadow: 0 34px 90px rgba(17, 17, 17, 0.24);
-  transform: translateX(-50%) perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
-  transition: transform var(--medium) var(--ease), box-shadow var(--medium) var(--ease);
+  box-shadow: 0 26px 70px rgba(17, 17, 17, 0.18);
+  transform:
+    translateX(-50%)
+    translateY(calc(var(--portrait-progress) * -14px))
+    perspective(900px)
+    rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg))
+    scale(calc(1 + (var(--portrait-progress) * 0.06)));
+  transition: box-shadow var(--medium) var(--ease);
+  will-change: transform;
 }
 
 .hero__portrait img {
@@ -347,10 +355,40 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: 52% 22%;
+  filter:
+    grayscale(calc(1 - var(--portrait-progress)))
+    contrast(calc(1.12 - (var(--portrait-progress) * 0.08)))
+    brightness(calc(0.9 + (var(--portrait-progress) * 0.1)));
+  transform: scale(calc(1.02 + (var(--portrait-progress) * 0.02)));
+  transition: filter var(--medium) var(--ease);
+  will-change: filter, transform;
 }
 
 .hero__portrait:hover {
-  box-shadow: 0 40px 100px rgba(17, 17, 17, 0.3);
+  box-shadow: 0 32px 90px rgba(17, 17, 17, 0.26);
+}
+
+.hero__portrait.is-color {
+  animation: portrait-flip 680ms var(--ease) both;
+}
+
+@keyframes portrait-flip {
+  0% {
+    transform: translateX(-50%) perspective(900px) rotateY(0deg) scale(0.94);
+  }
+
+  48% {
+    transform: translateX(-50%) perspective(900px) rotateY(-76deg) scale(0.98);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(calc(var(--portrait-progress) * -14px))
+      perspective(900px)
+      rotateY(0deg)
+      scale(calc(1 + (var(--portrait-progress) * 0.06)));
+  }
 }
 
 .hero__actions {
@@ -491,50 +529,48 @@ button {
 .lead {
   margin: 0;
   color: var(--ink-soft);
-  font-size: var(--lead-size);
+  font-size: min(var(--lead-size), 22px);
   line-height: 1.25;
 }
 
 .about__layout {
   display: grid;
-  grid-template-columns: minmax(360px, 0.8fr) minmax(0, 1fr);
-  gap: 72px;
-  align-items: center;
+  grid-template-columns: minmax(280px, 400px) minmax(0, 1fr);
+  gap: 58px;
+  align-items: start;
+  max-width: 1160px;
+  margin: 0 auto;
 }
 
 .about__image-stack {
   position: relative;
-  min-height: 620px;
+  min-height: 456px;
+  perspective: 900px;
 }
 
 .about__image-main,
 .about__image-secondary {
-  position: absolute;
   overflow: hidden;
   border-radius: var(--radius);
   object-fit: cover;
-  box-shadow: 0 30px 80px rgba(17, 17, 17, 0.16);
 }
 
 .about__image-main {
-  top: 0;
-  left: 12%;
-  width: 390px;
-  height: 540px;
+  position: relative;
+  width: 100%;
+  height: 456px;
   object-position: 50% 23%;
+  box-shadow: 0 24px 70px rgba(17, 17, 17, 0.12);
 }
 
 .about__image-secondary {
-  right: 4%;
-  bottom: 0;
-  width: 285px;
-  height: 190px;
-  border: 7px solid var(--paper);
+  display: none;
 }
 
 .about__copy {
   display: grid;
-  gap: 38px;
+  gap: 34px;
+  padding-top: 22px;
 }
 
 .highlight-list {
@@ -545,11 +581,11 @@ button {
   display: grid;
   grid-template-columns: 64px 1fr;
   align-items: center;
-  min-height: 76px;
+  min-height: 68px;
   border-bottom: 1px solid var(--line-dark);
   color: var(--ink);
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: 23px;
   font-weight: 800;
   transition: padding-left var(--medium) var(--ease), background-color var(--medium) var(--ease);
 }
@@ -567,7 +603,8 @@ button {
 .stat-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 76px;
+  max-width: 1160px;
+  margin: 76px auto 0;
   border: 1px solid var(--ink);
   border-radius: var(--radius);
   color: var(--paper);
@@ -757,7 +794,7 @@ button {
 }
 
 .project-row:hover,
-.project-row:focus-within {
+.project-row.is-active {
   padding-right: 24px;
   padding-left: 24px;
   color: var(--paper);
@@ -766,13 +803,13 @@ button {
 
 .project-row:hover p,
 .project-row:hover .project-row__number,
-.project-row:focus-within p,
-.project-row:focus-within .project-row__number {
+.project-row.is-active p,
+.project-row.is-active .project-row__number {
   color: rgba(250, 247, 243, 0.72);
 }
 
 .project-row:hover .tag-row span,
-.project-row:focus-within .tag-row span {
+.project-row.is-active .tag-row span {
   color: var(--paper);
   border-color: rgba(250, 247, 243, 0.24);
   background: rgba(250, 247, 243, 0.08);
@@ -806,7 +843,7 @@ button {
 }
 
 .project-row:hover .project-row__arrow,
-.project-row:focus-within .project-row__arrow {
+.project-row.is-active .project-row__arrow {
   color: var(--ink);
   background: var(--paper);
   transform: rotate(12deg);
@@ -999,8 +1036,8 @@ html.js .reveal.is-visible {
   }
 
   .hero__portrait {
-    width: 224px;
-    height: 306px;
+    width: 154px;
+    height: 210px;
   }
 
   .skills-grid {
@@ -1017,13 +1054,11 @@ html.js .reveal.is-visible {
   }
 
   .about__image-stack {
-    min-height: 560px;
+    min-height: 430px;
   }
 
   .about__image-main {
-    left: 0;
-    width: 350px;
-    height: 490px;
+    height: 430px;
   }
 
   .contact h2 {
@@ -1120,9 +1155,9 @@ html.js .reveal.is-visible {
   }
 
   .hero__portrait {
-    bottom: 104px;
-    width: 220px;
-    height: 300px;
+    bottom: 110px;
+    width: 150px;
+    height: 204px;
   }
 
   .hero__actions {
@@ -1153,21 +1188,19 @@ html.js .reveal.is-visible {
     margin-bottom: 38px;
   }
 
+  .about__layout {
+    max-width: 620px;
+  }
+
   .about__image-stack {
-    min-height: 520px;
+    min-height: 430px;
   }
 
   .about__image-main {
-    left: 50%;
-    width: 330px;
-    height: 460px;
-    transform: translateX(-50%);
-  }
-
-  .about__image-secondary {
-    right: 4%;
-    width: 250px;
-    height: 164px;
+    width: min(100%, 380px);
+    height: 430px;
+    margin: 0 auto;
+    transform: none;
   }
 
   .stat-strip {
@@ -1252,9 +1285,9 @@ html.js .reveal.is-visible {
   }
 
   .hero__portrait {
-    bottom: 106px;
-    width: 170px;
-    height: 232px;
+    bottom: 112px;
+    width: 134px;
+    height: 182px;
   }
 
   .hero__actions {
@@ -1274,18 +1307,12 @@ html.js .reveal.is-visible {
   }
 
   .about__image-stack {
-    min-height: 430px;
+    min-height: 360px;
   }
 
   .about__image-main {
-    width: 260px;
-    height: 362px;
-  }
-
-  .about__image-secondary {
-    width: 196px;
-    height: 132px;
-    border-width: 5px;
+    width: min(100%, 300px);
+    height: 360px;
   }
 
   .highlight-item {
@@ -1307,7 +1334,7 @@ html.js .reveal.is-visible {
   }
 
   .project-row:hover,
-  .project-row:focus-within {
+  .project-row.is-active {
     padding-right: 12px;
     padding-left: 12px;
   }
