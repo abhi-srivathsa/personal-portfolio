@@ -282,20 +282,20 @@ button {
 .hero {
   position: relative;
   min-height: calc(100svh - 58px);
-  padding: 116px var(--site-pad) 18px;
+  padding: 86px var(--site-pad) 18px;
 }
 
 .hero__grid {
   position: relative;
   display: grid;
-  min-height: calc(100svh - 186px);
+  min-height: calc(100svh - 156px);
   max-width: 1440px;
   margin: 0 auto;
 }
 
 .hero__meta {
   position: absolute;
-  top: 8px;
+  top: 0;
   z-index: 4;
   display: grid;
   gap: 6px;
@@ -319,21 +319,7 @@ button {
   position: relative;
   z-index: 3;
   align-self: center;
-  padding-top: 26px;
-}
-
-.hero__kicker {
-  width: max-content;
-  margin: 0 auto 22px;
-  padding: 9px 14px;
-  border: 1px solid var(--line-dark);
-  border-radius: var(--radius);
-  color: var(--ink-soft);
-  background: rgba(250, 247, 243, 0.72);
-  font-family: var(--font-display);
-  font-size: var(--small-size);
-  font-weight: 800;
-  text-transform: uppercase;
+  padding-top: 0;
 }
 
 .hero h1 {
@@ -1282,11 +1268,6 @@ html.js .reveal.is-visible {
 
   .hero__headline {
     padding-top: 100px;
-  }
-
-  .hero__kicker {
-    margin-bottom: 16px;
-    font-size: 12px;
   }
 
   .hero__actions {
