@@ -220,25 +220,24 @@ function initPortraitMorph() {
     const availableHeroHeight = viewportHeight - heroTop - (isCompact ? 18 : 28);
     const heroHeight = clamp(availableHeroHeight - (isCompact ? 0 : 8), isCompact ? 132 : 158, baseHeight);
     const heroWidth = heroHeight * aspectRatio;
-    const heroLeft = (viewportWidth - heroWidth) / 2;
 
     const targetWidth = targetRect.width || heroWidth;
     const targetHeight = targetRect.height || heroHeight;
     const start = Math.max(64, viewportHeight * 0.12);
     const end = Math.max(start + 1, aboutTop - viewportHeight * 0.22);
     const rawProgress = clamp((scrollY - start) / (end - start), 0, 1);
-    const progress = reducedMotion ? rawProgress : easeInOut(rawProgress);
-    const travelProgress = reducedMotion ? rawProgress : easeOut(rawProgress);
-    const left = lerp(heroLeft, targetRect.left, travelProgress);
-    const top = lerp(heroTop, targetRect.top, travelProgress);
+    const progress = reducedMotion ? rawProgress : smoothStep(rawProgress);
+    const travelProgress = reducedMotion ? rawProgress : smoothStep(clamp(rawProgress / 0.92, 0, 1));
+    const settleProgress = reducedMotion ? rawProgress : smoothStep(clamp((rawProgress - 0.58) / 0.32, 0, 1));
     const width = lerp(heroWidth, targetWidth, progress);
     const height = lerp(heroHeight, targetHeight, progress);
-    const flipProgress = reducedMotion ? 1 : clamp((rawProgress - 0.06) / 0.78, 0, 1);
-    const flipWave = flipProgress < 0.5
-      ? easeInOut(flipProgress * 2) * -88
-      : easeInOut((1 - flipProgress) * 2) * 88;
-    const rotate = reducedMotion ? 0 : flipWave;
-    const colorProgress = reducedMotion ? 1 : easeInOut(clamp((flipProgress - 0.5) / 0.24, 0, 1));
+    const targetCenterX = targetRect.left + targetWidth / 2;
+    const centerX = lerp(viewportWidth / 2, targetCenterX, settleProgress);
+    const left = centerX - width / 2;
+    const top = lerp(heroTop, targetRect.top, travelProgress);
+    const flipProgress = reducedMotion ? 1 : smoothStep(clamp((rawProgress - 0.08) / 0.58, 0, 1));
+    const rotate = reducedMotion ? 0 : Math.sin(flipProgress * Math.PI) * -88;
+    const colorProgress = reducedMotion ? 1 : smoothStep(clamp((flipProgress - 0.48) / 0.18, 0, 1));
     const aboutFade = progress > 0.98 && scrollY > aboutBottom - viewportHeight * 0.18
       ? clamp((targetRect.bottom + 120) / 220, 0, 1)
       : 1;
@@ -316,14 +315,8 @@ function lerp(start, end, amount) {
   return start + (end - start) * amount;
 }
 
-function easeInOut(value) {
-  return value < 0.5
-    ? 4 * value * value * value
-    : 1 - Math.pow(-2 * value + 2, 3) / 2;
-}
-
-function easeOut(value) {
-  return 1 - Math.pow(1 - value, 3);
+function smoothStep(value) {
+  return value * value * (3 - 2 * value);
 }
 
 function throttle(callback, wait) {
