@@ -564,7 +564,7 @@ body.is-past-hero .hero__actions {
   display: grid;
   grid-template-columns: minmax(260px, 1fr) minmax(360px, 500px) minmax(260px, 1fr);
   gap: 42px;
-  align-items: center;
+  align-items: start;
   max-width: 1320px;
   margin: 0 auto;
 }
@@ -586,6 +586,15 @@ body.is-past-hero .hero__actions {
   margin-bottom: 0;
 }
 
+.about__opening {
+  max-width: 360px;
+  margin: 42px 0 0;
+  color: var(--ink-soft);
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.24;
+}
+
 .about__portrait-slot {
   width: 100%;
   height: 560px;
@@ -594,6 +603,7 @@ body.is-past-hero .hero__actions {
 }
 
 .about__copy {
+  align-self: start;
   display: grid;
   gap: 34px;
   padding-top: 0;
@@ -1079,6 +1089,11 @@ html.js .reveal.is-visible {
     min-height: auto;
   }
 
+  .about__opening {
+    max-width: 760px;
+    margin-top: 28px;
+  }
+
   .about__intro .section__eyebrow {
     margin-bottom: 18px;
   }
@@ -1179,6 +1194,12 @@ html.js .reveal.is-visible {
 
   .about__intro {
     min-height: auto;
+  }
+
+  .about__opening {
+    max-width: 100%;
+    margin-top: 22px;
+    font-size: 19px;
   }
 
   .about__portrait-slot {
